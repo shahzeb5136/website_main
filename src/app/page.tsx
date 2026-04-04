@@ -248,7 +248,7 @@ export default function HomePage() {
                 <div className="w-full bg-slate-800 rounded-full h-3 overflow-hidden">
                   <div
                     className={`h-full rounded-full bg-gradient-to-r ${skill.color} transition-all duration-1000 ease-out`}
-                    style={{ width: `${(skill.years / 9) * 100}%` }}
+                    style={{ width: `${(parseInt(skill.years, 10) / 20) * 100}%` }}
                   />
                 </div>
               </div>
