@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import SiteLayout from "@/components/site-layout";
+import Image from "next/image";
 
 /* ─────────── DATA ─────────── */
 const CLIENTS = [
