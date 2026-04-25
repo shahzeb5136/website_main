@@ -1,46 +1,44 @@
 import type { Metadata } from "next";
-import { Inter, Outfit } from "next/font/google";
+import { Inter, Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-geist-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const serif = Source_Serif_4({
+  variable: "--font-serif",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+});
+
+const mono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
-  title: "Shahzeb Yousuf | Data Science Consultant & AI Solutions",
+  title: "Shahzeb Yousuf — Data Science & ML Consultancy",
   description:
-    "Expert Data Scientist & ML Consultant with 9+ years of experience. Specializing in strategic consultancy for governments and enterprises, and end-to-end AI integration for businesses.",
+    "Independent data science and ML consultancy for organisations where the stakes are real. Ten years across nuclear energy, healthcare, government health programmes, and insurance in the GCC.",
   keywords: [
-    "Data Scientist",
-    "ML Consultant",
-    "AI Integration",
-    "Machine Learning",
-    "Consultancy",
-    "Abu Dhabi",
-    "Dubai",
-    "UAE",
+    "Data Scientist", "ML Consultant", "AI Integration", "Machine Learning",
+    "Consultancy", "Abu Dhabi", "Dubai", "UAE",
   ],
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${outfit.variable} dark antialiased`}
+      className={`${inter.variable} ${serif.variable} ${mono.variable} antialiased`}
     >
-      <body className="min-h-screen bg-[#030712] text-slate-100">
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -2,54 +2,67 @@
 
 import React from "react";
 import Link from "next/link";
-import {
-  Home,
-  Briefcase,
-  Cpu,
-  FolderOpen,
-} from "lucide-react";
 
-const navigationLinks = [
-  { label: "Home", href: "/", icon: <Home className="h-4 w-4" /> },
-  { label: "Consultancy", href: "/consultancy", icon: <Briefcase className="h-4 w-4" /> },
-  { label: "Open Projects", href: "/open-projects", icon: <FolderOpen className="h-4 w-4" /> },
-  { label: "AI Integration", href: "/ai-integration", icon: <Cpu className="h-4 w-4" /> },
+const nav = [
+  { label: "Consultancy",     href: "/consultancy" },
+  { label: "AI Integration",  href: "/ai-integration" },
+  { label: "Open Projects",   href: "/open-projects" },
+  { label: "Contact",         href: "/#contact" },
 ];
-
-export const Logo = () => {
-  return (
-    <Link href="/" className="font-normal flex space-x-2 items-center text-sm text-white relative z-20">
-      <div className="h-6 w-7 bg-gradient-to-br from-cyan-400 to-purple-500 rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-      <span className="font-semibold text-white whitespace-pre text-base">SY</span>
-    </Link>
-  );
-};
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col bg-[#030712] w-full min-h-screen">
-      <header className="sticky top-0 z-50 w-full border-b border-slate-800/50 bg-[#0a0f1a]/80 backdrop-blur-md">
-        <div className="flex items-center justify-between h-16 px-6 md:px-12 max-w-[1200px] mx-auto w-full">
-          <Logo />
-          <nav className="flex items-center gap-6">
-            {navigationLinks.map((link) => (
-              <Link 
-                key={link.label} 
-                href={link.href}
-                className="flex items-center gap-2 text-sm font-medium text-slate-300 hover:text-cyan-400 transition-colors"
-              >
-                {link.icon}
-                <span className="hidden sm:inline-block">{link.label}</span>
+    <div style={{ minHeight: "100vh", background: "var(--bg)", color: "var(--ink)" }}>
+      <header style={{ borderBottom: "1px solid var(--rule)", background: "var(--bg)" }}>
+        <div
+          style={{
+            maxWidth: 1240,
+            margin: "0 auto",
+            padding: "20px 48px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "baseline", gap: 14 }}>
+            <Link href="/" className="serif" style={{ fontSize: 22, letterSpacing: "-0.02em" }}>
+              Shahzeb Yousuf
+            </Link>
+            <div style={{ width: 1, height: 14, background: "var(--rule)" }} />
+            <div className="eyebrow">Data Science · ML Consultancy</div>
+          </div>
+          <nav style={{ display: "flex", gap: 32, fontSize: 13 }}>
+            {nav.map((n) => (
+              <Link key={n.label} href={n.href} className="link">
+                {n.label}
               </Link>
             ))}
           </nav>
         </div>
       </header>
-      <main className="flex-1 w-full flex justify-center">
-        <div className="w-full max-w-[1200px] px-6 md:px-12 py-8">
-          {children}
+
+      <main>{children}</main>
+
+      <footer style={{ borderTop: "1px solid var(--rule)", padding: "32px 48px", background: "var(--surface)" }}>
+        <div
+          style={{
+            maxWidth: 1240,
+            margin: "0 auto",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            fontSize: 12,
+            color: "var(--muted)",
+          }}
+        >
+          <div>© {new Date().getFullYear()} Shahzeb Yousuf · Practice established 2016</div>
+          <div style={{ display: "flex", gap: 24 }}>
+            <a className="link" href="https://github.com/shahzeb5136" target="_blank" rel="noreferrer">GitHub</a>
+            <a className="link" href="#">LinkedIn</a>
+            <a className="link" href="mailto:y.shahzeb@gmail.com">Email</a>
+          </div>
         </div>
-      </main>
+      </footer>
     </div>
   );
 }
