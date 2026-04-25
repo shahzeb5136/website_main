@@ -2,16 +2,23 @@ import React from "react";
 import Link from "next/link";
 import SiteLayout from "@/components/site-layout";
 
+
 const openProjects = [
-  { id: "global-markets", title: "Global Markets Report",
+  {
+    id: "global-markets", title: "Global Markets Report",
     description: "Interactive dashboard for global markets data and analysis.",
-    tags: ["Streamlit", "Python", "Finance"], date: "April 2026" },
-  { id: "RUL-analyzer", title: "RUL Analyzer",
+    tags: ["Streamlit", "Python", "Finance"], date: "April 2026"
+  },
+  {
+    id: "RUL-analyzer", title: "RUL Analyzer",
     description: "Interactive application allowing users to upload documents and extract key entities using LLMs.",
-    tags: ["Streamlit", "Python", "spaCy", "HuggingFace"], date: "February 2026" },
-  { id: "data-quality", title: "Data Quality Dashboard",
+    tags: ["Streamlit", "Python", "spaCy", "HuggingFace"], date: "February 2026"
+  },
+  {
+    id: "data-quality", title: "Data Quality Dashboard",
     description: "A tool to automatically profile datasets and generate data quality reports.",
-    tags: ["Streamlit", "Python", "YData Profiling"], date: "January 2026" },
+    tags: ["Streamlit", "Python", "YData Profiling"], date: "January 2026"
+  },
 ];
 
 const container: React.CSSProperties = { maxWidth: 1240, margin: "0 auto", padding: "0 48px" };

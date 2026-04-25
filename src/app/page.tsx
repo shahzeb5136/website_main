@@ -74,11 +74,14 @@ export default function HomePage() {
             </div>
           </div>
           <div>
-            <div style={{ aspectRatio: "4 / 5", background: "var(--soft)", border: "1px solid var(--rule)", position: "relative", overflow: "hidden" }}>
-              <div style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(135deg, var(--rule) 0px, var(--rule) 1px, transparent 1px, transparent 14px)", opacity: .5 }} />
-              <div className="mono" style={{ position: "absolute", bottom: 16, left: 16, fontSize: 10, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".12em" }}>
-                portrait · 4:5 · b&w
-              </div>
+            <div style={{ aspectRatio: "4 / 5", border: "1px solid var(--rule)", position: "relative", overflow: "hidden", backgroundColor: "var(--soft)" }}>
+              <Image 
+                src="/main_pic.jpg" 
+                alt="Shahzeb Yousuf Portrait" 
+                fill 
+                style={{ objectFit: "cover", filter: "grayscale(100%)" }} 
+                priority
+              />
             </div>
             <div className="mono" style={{ fontSize: 11, color: "var(--muted)", marginTop: 10, letterSpacing: ".06em" }}>
               Shahzeb Yousuf, Abu Dhabi, 2026
