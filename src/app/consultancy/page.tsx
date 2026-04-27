@@ -1,8 +1,11 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import SiteLayout from "@/components/site-layout";
-import CaseStudyPage from "@/components/case-study";
+import ContactModal from "@/components/contact-modal";
 
 export default function ConsultancyPage() {
+  const [modalOpen, setModalOpen] = useState(false);
+
   const SECTORS = [
     { slug: "nuclear",    name: "Nuclear Energy",           client: "ENEC — Barakah",            summary: "Operational analytics and predictive maintenance for the first nuclear energy plant in the Arab world." },
     { slug: "healthcare", name: "Healthcare",               client: "NMC Healthcare",            summary: "Snowflake migration, clinical standardisation, and ML for patient outcomes at the UAE's largest private provider." },
@@ -32,6 +35,8 @@ export default function ConsultancyPage() {
 
   return (
     <SiteLayout>
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} subject="Consultancy Enquiry" />
+
       {/* HERO */}
       <section style={{ ...container, padding: "96px 48px 80px" }}>
         <div style={twoCol}>
@@ -44,7 +49,7 @@ export default function ConsultancyPage() {
               Proven consultancy practice across governments, healthcare providers, nuclear energy operators, and insurers in the GCC. Deep technical expertise combined with the business judgement to know when and where to apply it.
             </p>
             <div style={{ marginTop: 40, display: "flex", gap: 12 }}>
-              <a className="btn-primary" href="mailto:y.shahzeb@gmail.com">Book a consultation →</a>
+              <button id="consultancy-cta" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>Book a consultation →</button>
               <a className="btn-ghost" href="#sectors">Review sectors</a>
             </div>
           </div>
@@ -142,7 +147,7 @@ export default function ConsultancyPage() {
               Ready to engage? No deck, no pitch — thirty minutes to understand the problem.
             </h2>
             <div style={{ display: "flex", gap: 12 }}>
-              <a className="btn-primary" href="tel:+971551763478">+971 55 176 3478</a>
+              <button id="consultancy-cta-bottom" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>Book a consultation →</button>
             </div>
           </div>
         </div>

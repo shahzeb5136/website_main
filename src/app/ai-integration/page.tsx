@@ -1,5 +1,7 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import SiteLayout from "@/components/site-layout";
+import ContactModal from "@/components/contact-modal";
 
 const SERVICES = [
   { no: "01", name: "Large Language Models",
@@ -61,8 +63,10 @@ const container: React.CSSProperties = { maxWidth: 1240, margin: "0 auto", paddi
 const twoCol: React.CSSProperties = { display: "grid", gridTemplateColumns: "200px 1fr", gap: 60 };
 
 export default function AIIntegrationPage() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <SiteLayout>
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} subject="AI Readiness Assessment" />
       {/* HERO */}
       <section style={{ ...container, padding: "96px 48px 80px" }}>
         <div style={twoCol}>
@@ -75,7 +79,7 @@ export default function AIIntegrationPage() {
               Roughly 87% of machine-learning models never reach production. The work here is specifically about the ones that do — built with the data readiness, MLOps, and governance it takes to survive the handover.
             </p>
             <div style={{ marginTop: 40, display: "flex", gap: 12 }}>
-              <a className="btn-primary" href="mailto:y.shahzeb@gmail.com?subject=AI%20Readiness%20Assessment">Request an AI readiness assessment →</a>
+              <button id="ai-cta-hero" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>Request an AI readiness assessment →</button>
               <a className="btn-ghost" href="#projects">Review recent work</a>
             </div>
           </div>
@@ -225,7 +229,7 @@ export default function AIIntegrationPage() {
               We evaluate your data, identify the highest-value AI opportunities, and outline a clear implementation roadmap. No obligations.
             </p>
             <div style={{ display: "flex", gap: 12 }}>
-              <a className="btn-primary" href="mailto:y.shahzeb@gmail.com?subject=AI%20Readiness%20Assessment">Request assessment →</a>
+              <button id="ai-cta-bottom" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>Request assessment →</button>
               <a className="btn-ghost" href="tel:+971551763478">+971 55 176 3478</a>
             </div>
           </div>

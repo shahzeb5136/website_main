@@ -1,7 +1,9 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Link from "next/link";
 import SiteLayout from "@/components/site-layout";
 import Image from "next/image";
+import ContactModal from "@/components/contact-modal";
 
 /* ─────────── DATA ─────────── */
 const CLIENTS = [
@@ -67,6 +69,7 @@ const container: React.CSSProperties = { maxWidth: 1240, margin: "0 auto", paddi
 const twoCol: React.CSSProperties = { display: "grid", gridTemplateColumns: "200px 1fr", gap: 60 };
 
 export default function HomePage() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
     <SiteLayout>
       {/* HERO */}
@@ -84,7 +87,7 @@ export default function HomePage() {
               Senior data science and AI consultancy across nuclear energy, healthcare, government health programmes, and insurance in the GCC. We lead teams, ship production systems, and leave behind documentation that survives handover.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-              <a className="btn-primary" href="#contact">Arrange an introduction →</a>
+              <button id="hero-cta" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>Arrange an introduction →</button>
               <Link className="btn-ghost" href="/consultancy">Consultancy</Link>
               <Link className="btn-ghost" href="/ai-integration">AI Integration</Link>
               <Link className="btn-ghost" href="/open-projects">Open Projects</Link>
@@ -269,6 +272,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} subject="Introduction Enquiry" />
     </SiteLayout>
   );
 }
