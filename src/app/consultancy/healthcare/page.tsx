@@ -11,12 +11,11 @@ export default function HealthcarePage() {
         sector="Healthcare"
         headline="Modernising the data estate of the UAE's largest private healthcare provider."
         lede="Principal Data Scientist at NMC Healthcare. Led the migration from a fragmented legacy estate to Snowflake, standardised clinical and claims data, and put ML into production for length-of-stay and readmission prediction."
-        client={{ name: "NMC Healthcare", role: "Principal Data Scientist", years: "2021 — 2024" }}
+        client={{ name: "NMC Healthcare", role: "Data Science & Analytics Consultancy" }}
         metrics={[
           { value: "10+", label: "Hospitals in scope" },
           { value: "Snowflake", label: "Target cloud platform" },
           { value: "M+", label: "Patient records standardised" },
-          { value: "3", label: "Years leading the team" },
         ]}
         sections={[
           { key: "context", title: "Context",
@@ -31,16 +30,16 @@ export default function HealthcarePage() {
           "Executive reporting bridging clinical, operational, and finance data",
         ]}
         projects={[
-          { year: "2021 — 2023", title: "Snowflake Migration",
+          { title: "Snowflake Migration",
             summary: "Architected and led the migration of fragmented healthcare datasets to Snowflake. Built scalable cloud infrastructure for analytics and clinical reporting workflows.",
             tags: ["Cloud", "Snowflake"] },
-          { year: "2021 — 2023", title: "Clinical Data Standardisation",
+          { title: "Clinical Data Standardisation",
             summary: "Standardised complex, unstructured clinical datasets into unified formats. Improved interoperability across hospital systems and reduced silos.",
             tags: ["ETL", "Standards"] },
-          { year: "2022 — 2023", title: "ML for Clinical Analytics",
+          { title: "ML for Clinical Analytics",
             summary: "Developed ML for patient outcome prediction and resource allocation. Models used in day-to-day clinical operations.",
             tags: ["ML", "Outcomes"] },
-          { year: "2021 — 2023", title: "Team Leadership",
+          { title: "Team Leadership",
             summary: "Led the data science team as Principal. Mentored analysts, set governance standards, and bridged technical and business stakeholders.",
             tags: ["Leadership"] },
         ]}

@@ -1,23 +1,23 @@
 import React from "react";
-import Link from "next/link";
 import SiteLayout from "@/components/site-layout";
 
 
 const openProjects = [
   {
-    id: "global-markets", title: "Global Markets Report",
+    id: "global-markets",
+    title: "Global Markets Report",
     description: "Interactive dashboard for global markets data and analysis.",
-    tags: ["Streamlit", "Python", "Finance"], date: "April 2026"
+    tags: ["Streamlit", "Python", "Finance"],
+    date: "April 2026",
+    url: "https://globalmarketsreport-shah.streamlit.app/",
   },
   {
-    id: "RUL-analyzer", title: "RUL Analyzer",
+    id: "RUL-analyzer",
+    title: "RUL Analyzer",
     description: "Interactive application allowing users to upload documents and extract key entities using LLMs.",
-    tags: ["Streamlit", "Python", "spaCy", "HuggingFace"], date: "February 2026"
-  },
-  {
-    id: "data-quality", title: "Data Quality Dashboard",
-    description: "A tool to automatically profile datasets and generate data quality reports.",
-    tags: ["Streamlit", "Python", "YData Profiling"], date: "January 2026"
+    tags: ["Streamlit", "Python", "spaCy", "HuggingFace"],
+    date: "February 2026",
+    url: "https://rulnuclear-shah.streamlit.app/",
   },
 ];
 
@@ -35,7 +35,7 @@ export default function OpenProjectsPage() {
               Interactive applications and data tools, published openly.
             </h1>
             <p style={{ fontSize: 17, lineHeight: 1.55, color: "var(--muted)", maxWidth: 620 }}>
-              A small collection of live Streamlit and Python applications. Use them, read the code, file an issue. Most started as tools I needed during client engagements.
+              A small collection of live Streamlit and Python applications. Use them, read the code, file an issue. Most started as tools built during client engagements.
             </p>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function OpenProjectsPage() {
       <section style={{ ...container, padding: "40px 48px 96px" }}>
         <div style={{ borderTop: "1px solid var(--rule)" }}>
           {openProjects.map((p) => (
-            <Link key={p.id} href={`/open-projects/${p.id}`} style={{ textDecoration: "none", color: "inherit", display: "block" }}>
+            <a key={p.id} href={p.url} target="_blank" rel="noreferrer" style={{ textDecoration: "none", color: "inherit", display: "block" }}>
               <div style={{
                 display: "grid",
                 gridTemplateColumns: "200px 1fr 280px 40px",
@@ -62,9 +62,9 @@ export default function OpenProjectsPage() {
                     <span key={t} className="mono" style={{ fontSize: 10.5, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em" }}>— {t}</span>
                   ))}
                 </div>
-                <div style={{ fontSize: 18, color: "var(--muted)", textAlign: "right" }}>→</div>
+                <div style={{ fontSize: 18, color: "var(--muted)", textAlign: "right" }}>↗</div>
               </div>
-            </Link>
+            </a>
           ))}
         </div>
       </section>

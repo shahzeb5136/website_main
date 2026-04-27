@@ -11,7 +11,7 @@ export default function FintechPage() {
         sector="Technology & FinTech"
         headline="On-prem LLMs and vision for regulated FinTech in the GCC."
         lede="Principal Data Scientist at Rasan IT. Developing local LLM execution paradigms and computer vision workflows for GCC financial institutions whose regulatory posture precludes public-cloud AI. Winner of a national FinTech competition in Saudi Arabia."
-        client={{ name: "Rasan IT (KSA)", role: "Principal Data Scientist", years: "2022 — 2023" }}
+        client={{ name: "Rasan IT (KSA)", role: "AI & Data Science Consultancy" }}
         metrics={[
           { value: "On-prem", label: "Execution environment" },
           { value: "KSA", label: "Primary regulatory context" },

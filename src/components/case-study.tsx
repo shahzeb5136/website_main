@@ -12,7 +12,7 @@ type Metric = { label: string; value: string };
 
 type Project = {
   title: string;
-  year: string;
+  year?: string;
   summary: string;
   tags: string[];
 };
@@ -23,7 +23,7 @@ export type CaseStudyProps = {
   sector: string;             // e.g. "Nuclear Energy"
   headline: string;           // e.g. "Operational analytics for the Barakah programme."
   lede: string;               // 2–3 sentence intro
-  client?: { name: string; role: string; years: string };
+  client?: { name: string; role: string; years?: string };
   metrics?: Metric[];
   capabilities?: string[];    // bulleted list
   projects?: Project[];       // timeline-style engagements
@@ -74,19 +74,15 @@ export default function CaseStudyPage(props: CaseStudyProps) {
       {/* CLIENT STRIP */}
       {client && (
         <section style={{ borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", background: "var(--surface)" }}>
-          <div style={{ ...container, padding: "32px 48px", display: "grid", gridTemplateColumns: "200px 1fr 1fr 1fr", gap: 48, alignItems: "baseline" }}>
+          <div style={{ ...container, padding: "32px 48px", display: "grid", gridTemplateColumns: "200px 1fr 1fr", gap: 48, alignItems: "baseline" }}>
             <div className="eyebrow">Client</div>
             <div>
               <div className="mono" style={{ fontSize: 11, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em", marginBottom: 6 }}>Organisation</div>
               <div className="serif" style={{ fontSize: 18 }}>{client.name}</div>
             </div>
             <div>
-              <div className="mono" style={{ fontSize: 11, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em", marginBottom: 6 }}>Role</div>
+              <div className="mono" style={{ fontSize: 11, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em", marginBottom: 6 }}>Engagement Type</div>
               <div className="serif" style={{ fontSize: 18 }}>{client.role}</div>
-            </div>
-            <div>
-              <div className="mono" style={{ fontSize: 11, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em", marginBottom: 6 }}>Period</div>
-              <div className="serif num" style={{ fontSize: 18 }}>{client.years}</div>
             </div>
           </div>
         </section>
@@ -140,7 +136,7 @@ export default function CaseStudyPage(props: CaseStudyProps) {
         <section style={{ borderTop: "1px solid var(--rule)", background: "var(--surface)" }}>
           <div style={{ ...container, padding: "72px 48px" }}>
             <div style={twoCol}>
-              <div className="eyebrow">What I delivered</div>
+              <div className="eyebrow">Capabilities</div>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px 48px" }}>
                 {capabilities.map((c) => (
                   <li key={c} style={{ fontSize: 15, lineHeight: 1.5, paddingBottom: 12, borderBottom: "1px solid var(--rule)" }}>
@@ -157,7 +153,7 @@ export default function CaseStudyPage(props: CaseStudyProps) {
       {projects && projects.length > 0 && (
         <section style={{ ...container, padding: "80px 48px" }}>
           <div style={{ ...twoCol, marginBottom: 40 }}>
-            <div className="eyebrow">Engagements</div>
+            <div className="eyebrow">Projects</div>
             <h2 className="serif" style={{ fontSize: 36, letterSpacing: "-0.02em", lineHeight: 1.1, maxWidth: 720 }}>
               Work delivered.
             </h2>
@@ -166,15 +162,12 @@ export default function CaseStudyPage(props: CaseStudyProps) {
             {projects.map((p) => (
               <div key={p.title} style={{
                 display: "grid",
-                gridTemplateColumns: "200px 1fr 180px",
+                gridTemplateColumns: "1fr 180px",
                 gap: 32,
                 padding: "32px 0",
                 borderBottom: "1px solid var(--rule)",
                 alignItems: "start",
               }}>
-                <div className="mono num" style={{ fontSize: 12, color: "var(--muted)", letterSpacing: ".04em", paddingTop: 6 }}>
-                  {p.year}
-                </div>
                 <div>
                   <div className="serif" style={{ fontSize: 22, letterSpacing: "-0.015em", marginBottom: 10 }}>{p.title}</div>
                   <div style={{ fontSize: 14.5, lineHeight: 1.6, color: "var(--muted)", maxWidth: 620 }}>{p.summary}</div>
@@ -196,11 +189,10 @@ export default function CaseStudyPage(props: CaseStudyProps) {
           <div className="eyebrow">Next step</div>
           <div>
             <h2 className="serif" style={{ fontSize: 40, letterSpacing: "-0.025em", lineHeight: 1.1, marginBottom: 32, maxWidth: 760 }}>
-              A similar engagement in your organisation? Begin with a conversation.
+              Need this capability in your organisation? Let&apos;s talk.
             </h2>
             <div style={{ display: "flex", gap: 12 }}>
-              <a className="btn-primary" href="mailto:y.shahzeb@gmail.com">Write to Shahzeb →</a>
-              <Link className="btn-ghost" href={parentHref}>All sectors</Link>
+              <Link className="btn-primary" href={parentHref}>All sectors</Link>
             </div>
           </div>
         </div>

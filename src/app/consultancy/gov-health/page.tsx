@@ -11,7 +11,7 @@ export default function GovHealthPage() {
         sector="Government Health Programmes"
         headline="Analytics and audit for self-insured government health schemes."
         lede="Consulting data scientist for the Dubai Health Authority and the Department of Health, Abu Dhabi. Utilization analysis, electronic audit of claims, DRG reconciliation, and evidence for tariff negotiations — work that affects hundreds of thousands of beneficiaries."
-        client={{ name: "DHA · DoH Abu Dhabi", role: "Consulting Data Scientist", years: "2019 — 2022" }}
+        client={{ name: "DHA · DoH Abu Dhabi", role: "Health Analytics Consultancy" }}
         metrics={[
           { value: "100k+", label: "Beneficiaries affected by policy work" },
           { value: "M+", label: "Claims reviewed" },
@@ -31,16 +31,16 @@ export default function GovHealthPage() {
           "Executive reporting for health policy leadership",
         ]}
         projects={[
-          { year: "2019 — 2021", title: "DHA Self-Insured Programmes",
+          { title: "DHA Self-Insured Programmes",
             summary: "Utilization reports and cost driver analyses enabling data-driven adjustments to programmes covering hundreds of thousands of beneficiaries.",
             tags: ["Utilization", "Policy"] },
-          { year: "2020 — 2022", title: "DoH Thiqa Audit",
+          { title: "DoH Thiqa Audit",
             summary: "Audit of the Thiqa programme. Evidence for tariff structure optimisation; material expenditure impact.",
             tags: ["Audit", "Tariffs"] },
-          { year: "2019 — 2021", title: "Electronic Audit Pipeline",
+          { title: "Electronic Audit Pipeline",
             summary: "Automated anomaly detection and electronic audits on large-scale claims data. Rule-based and ML systems flagging irregularities; manual review time reduced by over 10%.",
             tags: ["Automation", "ML"] },
-          { year: "2018 — 2020", title: "DRG Reconciliation",
+          { title: "DRG Reconciliation",
             summary: "Reconciliation system for Diagnosis-Related Group claims. Standardised pricing methodology across providers.",
             tags: ["DRG", "Pricing"] },
         ]}

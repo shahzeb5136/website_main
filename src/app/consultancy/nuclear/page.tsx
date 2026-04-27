@@ -11,12 +11,11 @@ export default function NuclearPage() {
         sector="Nuclear Energy"
         headline="Operational analytics for the first nuclear plant in the Arab world."
         lede="Embedded data science and engineering at ENEC — Emirates Nuclear Energy Corporation — supporting the Barakah Nuclear Energy Plant. Four APR-1400 units, 5.6 GW combined capacity, regulated to FANR and international nuclear standards."
-        client={{ name: "Emirates Nuclear Energy Corporation (ENEC)", role: "Data Science Consultant", years: "2019 — 2021" }}
+        client={{ name: "Emirates Nuclear Energy Corporation (ENEC)", role: "Data Science Consultancy" }}
         metrics={[
           { value: "5.6 GW", label: "Combined plant capacity supported" },
           { value: "4",       label: "Reactor units covered" },
           { value: "25+",     label: "Dashboards & regulatory reports" },
-          { value: "3",       label: "Years embedded" },
         ]}
         sections={[
           {
@@ -36,16 +35,16 @@ export default function NuclearPage() {
           "Anomaly detection in operational sensor data",
         ]}
         projects={[
-          { year: "2019 — 2021", title: "Operational Analytics Platform",
+          { title: "Operational Analytics Platform",
             summary: "Enterprise analytics infrastructure for reactor performance, safety metrics, and maintenance scheduling across all four Barakah units.",
             tags: ["Real-time", "Power BI"] },
-          { year: "2019 — 2021", title: "Safety & Compliance Data Systems",
+          { title: "Safety & Compliance Data Systems",
             summary: "Automated collection, validation, and reporting of safety metrics aligned with FANR regulatory requirements and international standards.",
             tags: ["FANR", "Regulated"] },
-          { year: "2020 — 2021", title: "Predictive Maintenance Models",
+          { title: "Predictive Maintenance Models",
             summary: "ML for early detection of anomalies in critical equipment telemetry, reducing unplanned downtime and surfacing failure precursors for engineers.",
             tags: ["ML", "Anomaly Detection"] },
-          { year: "2019 — 2021", title: "Enterprise Data Standardisation",
+          { title: "Enterprise Data Standardisation",
             summary: "Unified data models, data dictionaries, and governance frameworks across fragmented operational datasets.",
             tags: ["Governance", "Data Quality"] },
         ]}

@@ -10,33 +10,49 @@ const CLIENTS = [
 ];
 
 const PRACTICE = [
-  { no: "01", name: "Strategic Advisory",
+  {
+    no: "01", name: "Strategic Advisory",
     body: "Board-level guidance on data strategy, architecture, and model governance for regulated industries.",
-    sub: "Engagement · 6–18 months" },
-  { no: "02", name: "AI & ML Delivery",
+    sub: "Scope · Strategic"
+  },
+  {
+    no: "02", name: "AI & ML Delivery",
     body: "End-to-end builds — LLMs, NLP pipelines, predictive models — deployed with MLOps and proper monitoring.",
-    sub: "Engagement · 3–9 months" },
-  { no: "03", name: "Team Leadership",
+    sub: "Scope · Delivery"
+  },
+  {
+    no: "03", name: "Team Leadership",
     body: "Embedded Principal role. Hire, mentor, and ship. Translate between executives and engineers.",
-    sub: "Engagement · retainer" },
+    sub: "Scope · Embedded"
+  },
 ];
 
 const ENGAGEMENTS = [
-  { year: "2023 — present", org: "ENEC", role: "Data Science Consultant", href: "/consultancy/nuclear",
+  {
+    org: "ENEC", role: "Data Science Consultant", href: "/consultancy/nuclear",
     summary: "Operational analytics for the Barakah nuclear programme. Predictive maintenance signal engineering and regulatory reporting.",
-    tags: ["Energy", "Regulated"] },
-  { year: "2021 — 2024", org: "NMC Healthcare", role: "Principal Data Scientist", href: "/consultancy/healthcare",
-    summary: "Led migration of a fragmented healthcare estate to Snowflake. Standardised claims, clinical and finance datasets; built ML for length-of-stay and readmission.",
-    tags: ["Healthcare", "Cloud"] },
-  { year: "2019 — 2022", org: "DHA & DoH Abu Dhabi", role: "Consulting Data Scientist", href: "/consultancy/gov-health",
+    tags: ["Energy", "Regulated"]
+  },
+  {
+    org: "NMC Healthcare", role: "Principal Data Scientist", href: "/consultancy/healthcare",
+    summary: "Migration of a fragmented healthcare estate to Snowflake. Standardised claims, clinical and finance datasets; ML for length-of-stay and readmission.",
+    tags: ["Healthcare", "Cloud"]
+  },
+  {
+    org: "DHA & DoH Abu Dhabi", role: "Consulting Data Scientist", href: "/consultancy/gov-health",
     summary: "Utilization analytics for self-insured government programmes. Tariff negotiation support and electronic audit of claims.",
-    tags: ["Government", "Health"] },
-  { year: "2020 — 2023", org: "Milliman · Taha Actuaries", role: "ML & Actuarial Consultant", href: "/consultancy/actuarial",
+    tags: ["Government", "Health"]
+  },
+  {
+    org: "Milliman · Taha Actuaries", role: "ML & Actuarial Consultant", href: "/consultancy/actuarial",
     summary: "Advanced GLM reserving, change-point detection on cost series, ARIMA trend work, predictive pricing for GCC insurers.",
-    tags: ["Actuarial", "Insurance"] },
-  { year: "2022 — 2023", org: "Rasan IT (KSA)", role: "Principal Data Scientist", href: "/consultancy/fintech",
-    summary: "On-prem LLM and vision execution for FinTech. Won a national KSA FinTech competition.",
-    tags: ["FinTech", "LLMs"] },
+    tags: ["Actuarial", "Insurance"]
+  },
+  {
+    org: "Rasan IT (KSA)", role: "Principal Data Scientist", href: "/consultancy/fintech",
+    summary: "On-prem LLM and vision execution for FinTech. National KSA FinTech competition winner.",
+    tags: ["FinTech", "LLMs"]
+  },
 ];
 
 const CAPABILITIES = [
@@ -62,25 +78,25 @@ export default function HomePage() {
               <span className="eyebrow">Available Q3 2026 · Based in Abu Dhabi</span>
             </div>
             <h1 className="serif" style={{ fontSize: 72, lineHeight: 1.02, letterSpacing: "-0.025em", marginBottom: 32, maxWidth: 900 }}>
-              Data and AI work for organisations where the stakes are real.
+              Data and AI consultancy for organisations where the stakes are real.
             </h1>
             <p style={{ fontSize: 19, lineHeight: 1.55, color: "var(--muted)", maxWidth: 620, marginBottom: 40 }}>
-              Ten years as a Principal Data Scientist and consultant across nuclear energy, healthcare, government health programmes, and insurance in the GCC. I lead teams, ship production systems, and leave behind documentation that survives handover.
+              Senior data science and AI consultancy across nuclear energy, healthcare, government health programmes, and insurance in the GCC. We lead teams, ship production systems, and leave behind documentation that survives handover.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <a className="btn-primary" href="#contact">Arrange an introduction →</a>
               <Link className="btn-ghost" href="/consultancy">Consultancy</Link>
               <Link className="btn-ghost" href="/ai-integration">AI Integration</Link>
               <Link className="btn-ghost" href="/open-projects">Open Projects</Link>
-            </div>
+            </div>~
           </div>
           <div>
             <div style={{ aspectRatio: "4 / 5", border: "1px solid var(--rule)", position: "relative", overflow: "hidden", backgroundColor: "var(--soft)" }}>
-              <Image 
-                src="/main_pic.jpg" 
-                alt="Shahzeb Yousuf Portrait" 
-                fill 
-                style={{ objectFit: "cover", filter: "grayscale(100%)" }} 
+              <Image
+                src="/main_pic.jpg"
+                alt="Shahzeb Yousuf Portrait"
+                fill
+                style={{ objectFit: "cover", filter: "grayscale(100%)" }}
                 priority
               />
             </div>
@@ -131,9 +147,9 @@ export default function HomePage() {
       {/* PRACTICE */}
       <section id="practice" style={{ ...container, padding: "80px 48px", borderTop: "1px solid var(--rule)" }}>
         <div style={{ ...twoCol, marginBottom: 48 }}>
-          <div className="eyebrow">Practice</div>
+          <div className="eyebrow">Services</div>
           <h2 className="serif" style={{ fontSize: 40, letterSpacing: "-0.02em", lineHeight: 1.1, maxWidth: 720 }}>
-            Three ways I work with clients. Scoped, accountable, and priced transparently.
+            Three ways we engage. Scoped, accountable, and priced transparently.
           </h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderTop: "1px solid var(--rule)" }}>
@@ -159,9 +175,9 @@ export default function HomePage() {
       {/* ENGAGEMENTS */}
       <section id="engagements" style={{ ...container, padding: "80px 48px" }}>
         <div style={{ ...twoCol, marginBottom: 48 }}>
-          <div className="eyebrow">Engagements</div>
+          <div className="eyebrow">Selected Clients</div>
           <h2 className="serif" style={{ fontSize: 40, letterSpacing: "-0.02em", lineHeight: 1.1, maxWidth: 720 }}>
-            Recent work.
+            Organisations we&apos;ve served.
           </h2>
         </div>
         <div style={{ borderTop: "1px solid var(--rule)" }}>
@@ -169,14 +185,11 @@ export default function HomePage() {
             <Link key={i} href={e.href} style={{ display: "block", color: "inherit", textDecoration: "none" }}>
               <div style={{
                 display: "grid",
-                gridTemplateColumns: "200px 240px 1fr 160px 40px",
+                gridTemplateColumns: "260px 1fr 160px 40px",
                 gap: 32, padding: "32px 0",
                 borderBottom: "1px solid var(--rule)",
                 alignItems: "start",
               }}>
-                <div className="mono num" style={{ fontSize: 12, color: "var(--muted)", letterSpacing: ".04em", paddingTop: 4 }}>
-                  {e.year}
-                </div>
                 <div>
                   <div className="serif" style={{ fontSize: 22, letterSpacing: "-0.015em", lineHeight: 1.2 }}>{e.org}</div>
                   <div style={{ fontSize: 12, color: "var(--muted)", marginTop: 6 }}>{e.role}</div>
@@ -229,20 +242,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIAL */}
-      <section style={{ ...container, padding: "96px 48px", borderTop: "1px solid var(--rule)" }}>
-        <div style={{ maxWidth: 880, margin: "0 auto" }}>
-          <div className="serif" style={{ fontSize: 48, color: "var(--rule)", lineHeight: 1, marginBottom: 8 }}>&ldquo;</div>
-          <blockquote className="serif" style={{ fontSize: 30, lineHeight: 1.35, letterSpacing: "-0.015em", margin: 0 }}>
-            Shahzeb translated a tangle of legacy systems into something our board could actually govern. The work was careful, unhurried, and correct on the first pass.
-          </blockquote>
-          <div style={{ marginTop: 32, fontSize: 13, color: "var(--muted)" }}>
-            <span style={{ color: "var(--ink)", fontWeight: 500 }}>Programme Director</span> · Healthcare, UAE
-            <span style={{ margin: "0 10px", color: "var(--rule)" }}>|</span>
-            <span className="mono">Reference available on request</span>
-          </div>
-        </div>
-      </section>
 
       {/* CONTACT */}
       <section id="contact" style={{ ...container, padding: "80px 48px", borderTop: "1px solid var(--rule)" }}>
@@ -266,10 +265,7 @@ export default function HomePage() {
                 <div className="serif" style={{ fontSize: 18, letterSpacing: "-0.01em" }}>Abu Dhabi · United Arab Emirates</div>
               </div>
             </div>
-            <div style={{ marginTop: 48, display: "flex", gap: 12 }}>
-              <a className="btn-primary" href="mailto:y.shahzeb@gmail.com">Write to Shahzeb →</a>
-              <a className="btn-ghost" href="/CV.pdf">Download CV · PDF</a>
-            </div>
+
           </div>
         </div>
       </section>

@@ -4,11 +4,11 @@ import CaseStudyPage from "@/components/case-study";
 
 export default function ConsultancyPage() {
   const SECTORS = [
-    { slug: "nuclear",    name: "Nuclear Energy",           client: "ENEC — Barakah",          years: "2019 — 2021",      summary: "Operational analytics and predictive maintenance for the first nuclear energy plant in the Arab world." },
-    { slug: "healthcare", name: "Healthcare",               client: "NMC Healthcare",          years: "2021 — 2024",      summary: "Snowflake migration, clinical standardisation, and ML for patient outcomes at the UAE's largest private provider." },
-    { slug: "gov-health", name: "Government Health",        client: "DHA · DoH Abu Dhabi",     years: "2019 — 2022",      summary: "Utilization analytics, electronic audits, and tariff negotiation support for self-insured programmes." },
-    { slug: "actuarial",  name: "Insurance & Actuarial",    client: "Milliman · Taha Actuaries", years: "2020 — 2023",    summary: "GLM reserving, change-point detection, and predictive pricing work for GCC insurers." },
-    { slug: "fintech",    name: "Technology & FinTech",     client: "Rasan IT (KSA)",          years: "2022 — 2023",      summary: "On-prem LLM and vision execution for regulated FinTech. National KSA FinTech competition winner." },
+    { slug: "nuclear",    name: "Nuclear Energy",           client: "ENEC — Barakah",            summary: "Operational analytics and predictive maintenance for the first nuclear energy plant in the Arab world." },
+    { slug: "healthcare", name: "Healthcare",               client: "NMC Healthcare",            summary: "Snowflake migration, clinical standardisation, and ML for patient outcomes at the UAE's largest private provider." },
+    { slug: "gov-health", name: "Government Health",        client: "DHA · DoH Abu Dhabi",       summary: "Utilization analytics, electronic audits, and tariff negotiation support for self-insured programmes." },
+    { slug: "actuarial",  name: "Insurance & Actuarial",    client: "Milliman · Taha Actuaries", summary: "GLM reserving, change-point detection, and predictive pricing work for GCC insurers." },
+    { slug: "fintech",    name: "Technology & FinTech",     client: "Rasan IT (KSA)",            summary: "On-prem LLM and vision execution for regulated FinTech. National KSA FinTech competition winner." },
   ];
 
   const SERVICES = [
@@ -41,7 +41,7 @@ export default function ConsultancyPage() {
               Strategic data consultancy for complex organisations.
             </h1>
             <p style={{ fontSize: 19, lineHeight: 1.55, color: "var(--muted)", maxWidth: 640 }}>
-              Ten years advising governments, healthcare providers, nuclear energy operators, and insurers across the GCC. Deep technical practice combined with the business judgement to know when to use it.
+              Proven consultancy practice across governments, healthcare providers, nuclear energy operators, and insurers in the GCC. Deep technical expertise combined with the business judgement to know when and where to apply it.
             </p>
             <div style={{ marginTop: 40, display: "flex", gap: 12 }}>
               <a className="btn-primary" href="mailto:y.shahzeb@gmail.com">Book a consultation →</a>
@@ -56,7 +56,7 @@ export default function ConsultancyPage() {
         <div style={{ ...twoCol, marginBottom: 48 }}>
           <div className="eyebrow">Services</div>
           <h2 className="serif" style={{ fontSize: 40, letterSpacing: "-0.02em", lineHeight: 1.1, maxWidth: 720 }}>
-            What I bring to the table.
+            What we bring to the table.
           </h2>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderTop: "1px solid var(--rule)" }}>
@@ -81,7 +81,7 @@ export default function ConsultancyPage() {
         <div style={{ ...twoCol, marginBottom: 48 }}>
           <div className="eyebrow">Sectors</div>
           <h2 className="serif" style={{ fontSize: 40, letterSpacing: "-0.02em", lineHeight: 1.1, maxWidth: 720 }}>
-            Industries I&apos;ve worked in.
+            Industries we serve.
           </h2>
         </div>
         <div style={{ borderTop: "1px solid var(--rule)" }}>
@@ -98,7 +98,6 @@ export default function ConsultancyPage() {
                 <div className="serif" style={{ fontSize: 24, letterSpacing: "-0.015em" }}>{s.name}</div>
                 <div>
                   <div style={{ fontSize: 14, lineHeight: 1.4 }}>{s.client}</div>
-                  <div className="mono num" style={{ fontSize: 11, color: "var(--muted)", marginTop: 6, letterSpacing: ".04em" }}>{s.years}</div>
                 </div>
                 <div style={{ fontSize: 14.5, lineHeight: 1.6, color: "var(--muted)", maxWidth: 560 }}>{s.summary}</div>
                 <div style={{ fontSize: 18, color: "var(--muted)", textAlign: "right" }}>→</div>
@@ -114,7 +113,7 @@ export default function ConsultancyPage() {
           <div style={{ ...twoCol, marginBottom: 48 }}>
             <div className="eyebrow">Methodology</div>
             <h2 className="serif" style={{ fontSize: 40, letterSpacing: "-0.02em", lineHeight: 1.1, maxWidth: 720 }}>
-              A four-phase engagement, refined over a decade.
+              A proven four-phase engagement model.
             </h2>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid var(--rule)" }}>
@@ -140,11 +139,10 @@ export default function ConsultancyPage() {
           <div className="eyebrow">Contact</div>
           <div>
             <h2 className="serif" style={{ fontSize: 48, letterSpacing: "-0.025em", lineHeight: 1.05, maxWidth: 900, marginBottom: 32 }}>
-              Discuss a brief. No deck, no pitch — thirty minutes to understand the problem.
+              Ready to engage? No deck, no pitch — thirty minutes to understand the problem.
             </h2>
             <div style={{ display: "flex", gap: 12 }}>
-              <a className="btn-primary" href="mailto:y.shahzeb@gmail.com">Write to Shahzeb →</a>
-              <a className="btn-ghost" href="tel:+971551763478">+971 55 176 3478</a>
+              <a className="btn-primary" href="tel:+971551763478">+971 55 176 3478</a>
             </div>
           </div>
         </div>

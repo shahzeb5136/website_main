@@ -58,7 +58,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
           <div>© {new Date().getFullYear()} Shahzeb Yousuf · Practice established 2016</div>
           <div style={{ display: "flex", gap: 24 }}>
             <a className="link" href="https://github.com/shahzeb5136" target="_blank" rel="noreferrer">GitHub</a>
-            <a className="link" href="#">LinkedIn</a>
+            <a className="link" href="https://www.linkedin.com/in/shahzeb-yousuf-56b648158/" target="_blank" rel="noreferrer">LinkedIn</a>
             <a className="link" href="mailto:y.shahzeb@gmail.com">Email</a>
           </div>
         </div>

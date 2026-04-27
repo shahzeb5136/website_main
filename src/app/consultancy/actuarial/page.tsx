@@ -11,7 +11,7 @@ export default function ActuarialPage() {
         sector="Insurance & Actuarial"
         headline="ML-assisted actuarial work for GCC insurers."
         lede="Consulting with Milliman and Taha Actuaries on medical pricing, reserving, and electronic audit. Advanced GLM methods, change-point detection on cost series, ARIMA trend work, and predictive pricing — actuarial craft with modern ML where it genuinely helps."
-        client={{ name: "Milliman · Taha Actuaries", role: "ML & Actuarial Consultant", years: "2020 — 2023" }}
+        client={{ name: "Milliman · Taha Actuaries", role: "Actuarial & ML Consultancy" }}
         metrics={[
           { value: "GCC", label: "Regional scope" },
           { value: "GLM", label: "Core reserving methodology" },
