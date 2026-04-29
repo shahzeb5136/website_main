@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import SiteLayout from "@/components/site-layout";
 import ContactModal from "@/components/contact-modal";
+import { useReveal, HeroHeadline } from "@/components/animations";
 
 const SERVICES = [
   { no: "01", name: "Large Language Models",
@@ -64,6 +65,9 @@ const twoCol: React.CSSProperties = { display: "grid", gridTemplateColumns: "200
 
 export default function AIIntegrationPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const stages = useReveal<HTMLDivElement>();
+  const problemReveal = useReveal<HTMLDivElement>();
+  const stackReveal = useReveal<HTMLDivElement>();
   return (
     <SiteLayout>
       <ContactModal isOpen={modalOpen} onClose={() => setModalOpen(false)} subject="AI Readiness Assessment" />
@@ -72,14 +76,18 @@ export default function AIIntegrationPage() {
         <div style={twoCol}>
           <div className="eyebrow">AI Integration</div>
           <div>
-            <h1 className="serif" style={{ fontSize: 68, lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: 980, marginBottom: 32 }}>
-              End-to-end AI delivery. No orphaned proofs of concept.
-            </h1>
-            <p style={{ fontSize: 19, lineHeight: 1.55, color: "var(--muted)", maxWidth: 660 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 32, opacity: 0, animation: "heroFade 1s ease .2s forwards" }}>
+              <span className="dot live" />
+              <span className="eyebrow">AI Delivery</span>
+            </div>
+            <HeroHeadline text="End-to-end AI delivery. No orphaned proofs of concept." />
+            <p className="hero-lead">
               Roughly 87% of machine-learning models never reach production. The work here is specifically about the ones that do — built with the data readiness, MLOps, and governance it takes to survive the handover.
             </p>
-            <div style={{ marginTop: 40, display: "flex", gap: 12 }}>
-              <button id="ai-cta-hero" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>Request an AI readiness assessment →</button>
+            <div className="hero-cta-row">
+              <button id="ai-cta-hero" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>
+                Request an AI readiness assessment <span className="arrow">→</span>
+              </button>
               <a className="btn-ghost" href="#projects">Review recent work</a>
             </div>
           </div>
@@ -88,7 +96,7 @@ export default function AIIntegrationPage() {
 
       {/* PROBLEM */}
       <section style={{ borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", background: "var(--surface)" }}>
-        <div style={{ ...container, padding: "64px 48px" }}>
+        <div ref={problemReveal.ref} className={problemReveal.seen ? "fade-in" : ""} style={{ ...container, padding: "64px 48px" }}>
           <div style={twoCol}>
             <div className="eyebrow">The problem</div>
             <div style={{ maxWidth: 760 }}>
@@ -113,19 +121,13 @@ export default function AIIntegrationPage() {
         </div>
         <div style={{ borderTop: "1px solid var(--rule)" }}>
           {SERVICES.map((s) => (
-            <div key={s.no} style={{
-              display: "grid",
-              gridTemplateColumns: "80px 260px 1fr 200px",
-              gap: 32, padding: "32px 0",
-              borderBottom: "1px solid var(--rule)",
-              alignItems: "start",
-            }}>
+            <div key={s.no} className="eng-row" style={{ gridTemplateColumns: "80px 260px 1fr 200px", gap: 32, padding: "32px 0", cursor: "default" }}>
               <div className="mono num" style={{ fontSize: 12, color: "var(--muted)", letterSpacing: ".04em", paddingTop: 6 }}>{s.no}</div>
-              <div className="serif" style={{ fontSize: 22, letterSpacing: "-0.015em" }}>{s.name}</div>
-              <p style={{ fontSize: 14.5, lineHeight: 1.6, color: "var(--muted)", maxWidth: 560 }}>{s.body}</p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-end" }}>
+              <div className="serif eng-org">{s.name}</div>
+              <div className="eng-summary">{s.body}</div>
+              <div className="eng-tags">
                 {s.tags.map(t => (
-                  <span key={t} className="mono" style={{ fontSize: 10.5, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em" }}>— {t}</span>
+                  <span key={t}>— {t}</span>
                 ))}
               </div>
             </div>
@@ -142,19 +144,20 @@ export default function AIIntegrationPage() {
               From zero to AI in five phases.
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", borderTop: "1px solid var(--rule)" }}>
-            {PROCESS.map((p, i) => (
-              <div key={p.step} style={{
-                padding: "28px 20px 36px",
-                borderRight: i < 4 ? "1px solid var(--rule)" : "none",
-              }}>
-                <div className="mono num" style={{ fontSize: 11, color: "var(--muted)", marginBottom: 20, letterSpacing: ".1em" }}>
-                  PHASE {p.step}
+          <div ref={stages.ref} className={`stages ${stages.seen ? "in" : ""}`}>
+            <div className="stages-axis" />
+            <div className="stages-axis-fill" />
+            <div className="stages-row" style={{ gridTemplateColumns: "repeat(5, 1fr)", paddingBottom: 24 }}>
+              {PROCESS.map((p, i) => (
+                <div key={p.step} className="stage" style={{ ["--w" as string]: "100%" } as React.CSSProperties}>
+                  <div className="week">PHASE {p.step}</div>
+                  <span className="node" />
+                  <h4>{p.name}</h4>
+                  <p>{p.body}</p>
+                  <div className="dur" />
                 </div>
-                <div className="serif" style={{ fontSize: 22, letterSpacing: "-0.015em", marginBottom: 12 }}>{p.name}</div>
-                <p style={{ fontSize: 13, lineHeight: 1.6, color: "var(--muted)" }}>{p.body}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -169,19 +172,13 @@ export default function AIIntegrationPage() {
         </div>
         <div style={{ borderTop: "1px solid var(--rule)" }}>
           {PROJECTS.map((p, i) => (
-            <div key={i} style={{
-              display: "grid",
-              gridTemplateColumns: "120px 280px 1fr 160px",
-              gap: 32, padding: "28px 0",
-              borderBottom: "1px solid var(--rule)",
-              alignItems: "start",
-            }}>
+            <div key={i} className="eng-row" style={{ gridTemplateColumns: "120px 280px 1fr 160px", gap: 32, padding: "28px 0", cursor: "default" }}>
               <div className="mono num" style={{ fontSize: 12, color: "var(--muted)", letterSpacing: ".04em", paddingTop: 6 }}>{p.year}</div>
-              <div className="serif" style={{ fontSize: 20, letterSpacing: "-0.015em", lineHeight: 1.3 }}>{p.title}</div>
-              <div style={{ fontSize: 14, lineHeight: 1.6, color: "var(--muted)", maxWidth: 560 }}>{p.summary}</div>
-              <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-end" }}>
+              <div className="serif eng-org">{p.title}</div>
+              <div className="eng-summary">{p.summary}</div>
+              <div className="eng-tags">
                 {p.tags.map(t => (
-                  <span key={t} className="mono" style={{ fontSize: 10.5, color: "var(--muted)", textTransform: "uppercase", letterSpacing: ".1em" }}>— {t}</span>
+                  <span key={t}>— {t}</span>
                 ))}
               </div>
             </div>
@@ -191,7 +188,7 @@ export default function AIIntegrationPage() {
 
       {/* STACK */}
       <section style={{ borderTop: "1px solid var(--rule)", background: "var(--surface)" }}>
-        <div style={{ ...container, padding: "80px 48px" }}>
+        <div ref={stackReveal.ref} className={stackReveal.seen ? "fade-in" : ""} style={{ ...container, padding: "80px 48px" }}>
           <div style={twoCol}>
             <div>
               <div className="eyebrow" style={{ marginBottom: 20 }}>Technology</div>

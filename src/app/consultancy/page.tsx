@@ -2,9 +2,11 @@
 import React, { useState } from "react";
 import SiteLayout from "@/components/site-layout";
 import ContactModal from "@/components/contact-modal";
+import { useReveal, HeroHeadline } from "@/components/animations";
 
 export default function ConsultancyPage() {
   const [modalOpen, setModalOpen] = useState(false);
+  const stages = useReveal<HTMLDivElement>();
 
   const SECTORS = [
     { slug: "nuclear",    name: "Nuclear Energy",           client: "ENEC — Barakah",            summary: "Operational analytics and predictive maintenance for the first nuclear energy plant in the Arab world." },
@@ -42,14 +44,18 @@ export default function ConsultancyPage() {
         <div style={twoCol}>
           <div className="eyebrow">Consultancy</div>
           <div>
-            <h1 className="serif" style={{ fontSize: 68, lineHeight: 1.03, letterSpacing: "-0.025em", maxWidth: 960, marginBottom: 32 }}>
-              Strategic data consultancy for complex organisations.
-            </h1>
-            <p style={{ fontSize: 19, lineHeight: 1.55, color: "var(--muted)", maxWidth: 640 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 32, opacity: 0, animation: "heroFade 1s ease .2s forwards" }}>
+              <span className="dot live" />
+              <span className="eyebrow">Consultancy Practice</span>
+            </div>
+            <HeroHeadline text="Strategic data consultancy for complex organisations." />
+            <p className="hero-lead">
               Proven consultancy practice across governments, healthcare providers, nuclear energy operators, and insurers in the GCC. Deep technical expertise combined with the business judgement to know when and where to apply it.
             </p>
-            <div style={{ marginTop: 40, display: "flex", gap: 12 }}>
-              <button id="consultancy-cta" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>Book a consultation →</button>
+            <div className="hero-cta-row">
+              <button id="consultancy-cta" className="btn-primary" style={{ cursor: "pointer" }} onClick={() => setModalOpen(true)}>
+                Book a consultation <span className="arrow">→</span>
+              </button>
               <a className="btn-ghost" href="#sectors">Review sectors</a>
             </div>
           </div>
@@ -66,16 +72,12 @@ export default function ConsultancyPage() {
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", borderTop: "1px solid var(--rule)" }}>
           {SERVICES.map((s, i) => (
-            <div key={s.no} style={{
-              padding: "32px 28px 36px",
-              borderRight: (i + 1) % 3 !== 0 ? "1px solid var(--rule)" : "none",
-              borderBottom: "1px solid var(--rule)",
-            }}>
-              <div className="mono num" style={{ fontSize: 11, color: "var(--muted)", marginBottom: 24, letterSpacing: ".1em" }}>
+            <div key={s.no} className="practice-card" style={{ borderRight: (i + 1) % 3 !== 0 ? "1px solid var(--rule)" : "none", borderBottom: "1px solid var(--rule)" }}>
+              <div className="mono num" style={{ fontSize: 11, color: "var(--muted)", marginBottom: 28, letterSpacing: ".1em" }}>
                 {s.no} / 06
               </div>
-              <div className="serif" style={{ fontSize: 22, letterSpacing: "-0.015em", marginBottom: 12 }}>{s.name}</div>
-              <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--muted)" }}>{s.body}</p>
+              <div className="serif p-name">{s.name}</div>
+              <p style={{ fontSize: 14.5, lineHeight: 1.6, color: "var(--muted)", marginBottom: 24 }}>{s.body}</p>
             </div>
           ))}
         </div>
@@ -91,22 +93,11 @@ export default function ConsultancyPage() {
         </div>
         <div style={{ borderTop: "1px solid var(--rule)" }}>
           {SECTORS.map((s) => (
-            <a key={s.slug} href={`/consultancy/${s.slug}`} style={{ display: "block", color: "inherit", textDecoration: "none" }}>
-              <div style={{
-                display: "grid",
-                gridTemplateColumns: "200px 260px 1fr 40px",
-                gap: 32, padding: "32px 0",
-                borderBottom: "1px solid var(--rule)",
-                alignItems: "start",
-                transition: "background .15s",
-              }}>
-                <div className="serif" style={{ fontSize: 24, letterSpacing: "-0.015em" }}>{s.name}</div>
-                <div>
-                  <div style={{ fontSize: 14, lineHeight: 1.4 }}>{s.client}</div>
-                </div>
-                <div style={{ fontSize: 14.5, lineHeight: 1.6, color: "var(--muted)", maxWidth: 560 }}>{s.summary}</div>
-                <div style={{ fontSize: 18, color: "var(--muted)", textAlign: "right" }}>→</div>
-              </div>
+            <a key={s.slug} href={`/consultancy/${s.slug}`} className="eng-row" style={{ gridTemplateColumns: "200px 260px 1fr 40px", gap: 32, padding: "32px 0" }}>
+              <div className="serif eng-org">{s.name}</div>
+              <div className="eng-role">{s.client}</div>
+              <div className="eng-summary">{s.summary}</div>
+              <div className="eng-arrow">→</div>
             </a>
           ))}
         </div>
@@ -121,19 +112,20 @@ export default function ConsultancyPage() {
               A proven four-phase engagement model.
             </h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", borderTop: "1px solid var(--rule)" }}>
-            {PROCESS.map((p, i) => (
-              <div key={p.step} style={{
-                padding: "32px 24px 40px",
-                borderRight: i < 3 ? "1px solid var(--rule)" : "none",
-              }}>
-                <div className="mono num" style={{ fontSize: 11, color: "var(--muted)", marginBottom: 24, letterSpacing: ".1em" }}>
-                  PHASE {p.step}
+          <div ref={stages.ref} className={`stages ${stages.seen ? "in" : ""}`}>
+            <div className="stages-axis" />
+            <div className="stages-axis-fill" />
+            <div className="stages-row" style={{ gridTemplateColumns: "repeat(4, 1fr)", paddingBottom: 24 }}>
+              {PROCESS.map((p, i) => (
+                <div key={p.step} className="stage" style={{ ["--w" as string]: "100%" } as React.CSSProperties}>
+                  <div className="week">PHASE {p.step}</div>
+                  <span className="node" />
+                  <h4>{p.name}</h4>
+                  <p>{p.body}</p>
+                  <div className="dur" />
                 </div>
-                <div className="serif" style={{ fontSize: 26, letterSpacing: "-0.015em", marginBottom: 14 }}>{p.name}</div>
-                <p style={{ fontSize: 14, lineHeight: 1.6, color: "var(--muted)" }}>{p.body}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
