@@ -107,19 +107,15 @@
   color: inherit; text-decoration: none;
 }
 .client-cell:hover { background: var(--surface); }
-.client-name   { font-family: var(--font-serif); font-size: 22px; letter-spacing: -.015em; white-space: nowrap; }
-.client-sector { font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+.client-name   { font-family: var(--font-serif); font-size: 28px; letter-spacing: -.015em; white-space: nowrap; }
+.client-sector { font-family: var(--font-mono); font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
 
 /* Logo tile placeholder — striped paper card with a serif monogram */
 .logo-tile {
   flex-shrink: 0;
-  border: 1px solid var(--rule);
-  background:
-    repeating-linear-gradient(135deg, var(--soft) 0 6px, transparent 6px 12px),
-    var(--surface);
   display: grid; place-items: center;
-  transition: border-color .25s, background .25s;
-  position: relative; overflow: hidden;
+  transition: transform .25s;
+  position: relative; overflow: visible;
 }
 .logo-tile .mark {
   font-family: var(--font-serif); font-size: 18px; letter-spacing: -.02em;
@@ -132,7 +128,7 @@
   color: var(--muted); letter-spacing: .08em; text-transform: uppercase; opacity: .7;
 }
 .client-cell:hover .logo-tile,
-.eng-row:hover .logo-tile { border-color: var(--accent); }
+.eng-row:hover .logo-tile { transform: scale(1.05); }
 .client-cell:hover .logo-tile .mark,
 .eng-row:hover    .logo-tile .mark { color: var(--accent); border-color: var(--accent); }
 

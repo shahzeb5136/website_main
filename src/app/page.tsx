@@ -8,13 +8,13 @@ import { useReveal, useCountUp, HeroHeadline } from "@/components/animations";
 
 /* ─────────── DATA ─────────── */
 const CLIENTS = [
-  { initials: "EN", logoUrl: "/logos/enec.jpg",     name: "ENEC",                       sector: "Nuclear Energy",     href: "/consultancy/nuclear" },
-  { initials: "NM", logoUrl: "/logos/nmc.png",      name: "NMC Healthcare",             sector: "Healthcare",         href: "/consultancy/healthcare" },
-  { initials: "DH", logoUrl: "/logos/dha.jpg",      name: "DHA",                        sector: "Government Health",  href: "/consultancy/gov-health" },
-  { initials: "DA", logoUrl: "/logos/doh.jpg",      name: "Department of Health · AD",  sector: "Government Health",  href: "/consultancy/gov-health" },
-  { initials: "M",  logoUrl: "/logos/milliman.jpg", name: "Milliman",                   sector: "Actuarial",          href: "/consultancy/actuarial" },
-  { initials: "T",  logoUrl: "/logos/taha.jpg",     name: "Taha Actuaries",             sector: "Actuarial",          href: "/consultancy/actuarial" },
-  { initials: "R",  logoUrl: "/logos/rasan.jpg",    name: "Rasan IT",                   sector: "FinTech · KSA",      href: "/consultancy/fintech" },
+  { initials: "EN", logoUrl: "/logos/enec.jpg", name: "ENEC", sector: "Nuclear Energy", href: "/consultancy/nuclear" },
+  { initials: "NM", logoUrl: "/logos/nmc.png", name: "NMC Healthcare", sector: "Healthcare", href: "/consultancy/healthcare" },
+  { initials: "DH", logoUrl: "/logos/dha.jpg", name: "DHA", sector: "Government Health", href: "/consultancy/gov-health" },
+  { initials: "DA", logoUrl: "/logos/doh.jpg", name: "Department of Health · AD", sector: "Government Health", href: "/consultancy/gov-health" },
+  { initials: "M", logoUrl: "/logos/milliman.jpg", name: "Milliman", sector: "Actuarial", href: "/consultancy/actuarial" },
+  { initials: "T", logoUrl: "/logos/taha.jpg", name: "Taha Actuaries", sector: "Actuarial", href: "/consultancy/actuarial" },
+  { initials: "R", logoUrl: "/logos/rasan.jpg", name: "Rasan IT", sector: "FinTech · KSA", href: "/consultancy/fintech" },
 ];
 
 const PRACTICE = [
@@ -47,7 +47,12 @@ const ENGAGEMENTS = [
     tags: ["Healthcare", "Cloud"],
   },
   {
-    initials: "DH", logoUrl: "/logos/dha.jpg", org: "DHA & DoH Abu Dhabi", role: "Consulting Data Scientist", href: "/consultancy/gov-health",
+    initials: "DH", logoUrl: "/logos/dha.jpg", org: "DHA", role: "Consulting Data Scientist", href: "/consultancy/gov-health",
+    summary: "Utilization analytics for self-insured government programmes. Tariff negotiation support and electronic audit of claims.",
+    tags: ["Government", "Health"],
+  },
+  {
+    initials: "DA", logoUrl: "/logos/doh.jpg", org: "DoH Abu Dhabi", role: "Consulting Data Scientist", href: "/consultancy/gov-health",
     summary: "Utilization analytics for self-insured government programmes. Tariff negotiation support and electronic audit of claims.",
     tags: ["Government", "Health"],
   },
@@ -58,53 +63,61 @@ const ENGAGEMENTS = [
   },
   {
     initials: "R", logoUrl: "/logos/rasan.jpg", org: "Rasan IT (KSA)", role: "Principal Data Scientist", href: "/consultancy/fintech",
-    summary: "On-prem LLM and vision execution for FinTech. National KSA FinTech competition winner.",
+    summary: "On-prem LLM execution for FinTech and InsurTech proof of concept and proposal. Post IPO stock analysis and predictions.",
     tags: ["FinTech", "LLMs"],
   },
 ];
 
 const STAGES = [
-  { week: "Wk 0 — 1",   name: "Discovery", body: "Stakeholder calls, system access, problem framing. No deliverable beyond a written brief.", w: "25%" },
-  { week: "Wk 1 — 4",   name: "Diagnosis", body: "Data audit, baseline metrics, options memo with recommended path and risks.", w: "60%" },
-  { week: "Wk 4 — 14",  name: "Build",     body: "Model, pipeline and dashboards developed in-codebase with reviews at every milestone.", w: "100%" },
-  { week: "Wk 12 — 18", name: "Deploy",    body: "MLOps, monitoring, SLOs, governance documentation. Cutover with the client engineering team.", w: "75%" },
-  { week: "Wk 18 +",    name: "Handover",  body: "Runbooks, training, and a final review. Optional retainer for the first six months in production.", w: "35%" },
+  { week: "Wk 0 — 1", name: "Discovery", body: "Stakeholder calls, system access, problem framing. No deliverable beyond a written brief.", w: "25%" },
+  { week: "Wk 1 — 4", name: "Diagnosis", body: "Data audit, baseline metrics, options memo with recommended path and risks.", w: "60%" },
+  { week: "Wk 4 — 14", name: "Build", body: "Model, pipeline and dashboards developed in-codebase with reviews at every milestone.", w: "100%" },
+  { week: "Wk 12 — 18", name: "Deploy", body: "MLOps, monitoring, SLOs, governance documentation. Cutover with the client engineering team.", w: "75%" },
+  { week: "Wk 18 +", name: "Handover", body: "Runbooks, training, and a final review. Optional retainer for the first six months in production.", w: "35%" },
 ];
 
 const SECTOR_MIX = [
-  { lbl: "Healthcare",       w: "30%", pct: "30%" },
-  { lbl: "Insurance",        w: "22%", pct: "22%" },
-  { lbl: "Government",       w: "18%", pct: "18%" },
+  { lbl: "Healthcare", w: "30%", pct: "30%" },
+  { lbl: "Insurance", w: "22%", pct: "22%" },
+  { lbl: "Government", w: "18%", pct: "18%" },
   { lbl: "Energy & Nuclear", w: "14%", pct: "14%" },
-  { lbl: "FinTech",          w: "10%", pct: "10%" },
-  { lbl: "Other",            w: "6%",  pct: "6%"  },
+  { lbl: "FinTech", w: "10%", pct: "10%" },
+  { lbl: "Other", w: "6%", pct: "6%" },
 ];
 
 const CAPABILITIES: { group: string; items: { label: string; yrs: string; w: string }[] }[] = [
-  { group: "Languages", items: [
-    { label: "Python",  yrs: "10y", w: "95%" },
-    { label: "SQL",     yrs: "10y", w: "92%" },
-    { label: "R",       yrs: "7y",  w: "70%" },
-    { label: "Scala",   yrs: "4y",  w: "50%" },
-  ]},
-  { group: "ML & AI", items: [
-    { label: "LLMs · RAG · fine-tuning", yrs: "3y", w: "90%" },
-    { label: "NLP",                      yrs: "8y", w: "88%" },
-    { label: "Time-series",              yrs: "9y", w: "80%" },
-    { label: "Computer vision",          yrs: "5y", w: "65%" },
-  ]},
-  { group: "Platforms", items: [
-    { label: "Snowflake",   yrs: "6y", w: "92%" },
-    { label: "Databricks",  yrs: "5y", w: "80%" },
-    { label: "Azure · AWS", yrs: "8y", w: "78%" },
-    { label: "On-prem GPU", yrs: "3y", w: "60%" },
-  ]},
-  { group: "Analytics", items: [
-    { label: "Power BI", yrs: "8y", w: "90%" },
-    { label: "Tableau",  yrs: "6y", w: "75%" },
-    { label: "Qlik",     yrs: "4y", w: "60%" },
-    { label: "Looker",   yrs: "3y", w: "55%" },
-  ]},
+  {
+    group: "Languages", items: [
+      { label: "Python", yrs: "10y", w: "95%" },
+      { label: "SQL", yrs: "10y", w: "92%" },
+      { label: "R", yrs: "7y", w: "70%" },
+      { label: "Scala", yrs: "4y", w: "50%" },
+    ]
+  },
+  {
+    group: "ML & AI", items: [
+      { label: "LLMs · RAG · fine-tuning", yrs: "3y", w: "90%" },
+      { label: "NLP", yrs: "8y", w: "88%" },
+      { label: "Time-series", yrs: "9y", w: "80%" },
+      { label: "Computer vision", yrs: "5y", w: "65%" },
+    ]
+  },
+  {
+    group: "Platforms", items: [
+      { label: "Snowflake", yrs: "6y", w: "92%" },
+      { label: "Databricks", yrs: "5y", w: "80%" },
+      { label: "Azure · AWS", yrs: "8y", w: "78%" },
+      { label: "On-prem GPU", yrs: "3y", w: "60%" },
+    ]
+  },
+  {
+    group: "Analytics", items: [
+      { label: "Power BI", yrs: "8y", w: "90%" },
+      { label: "Tableau", yrs: "6y", w: "75%" },
+      { label: "Qlik", yrs: "4y", w: "60%" },
+      { label: "Looker", yrs: "3y", w: "55%" },
+    ]
+  },
 ];
 
 const TICKER = [
@@ -118,11 +131,11 @@ function LogoTile({ initials, logoUrl, size = 56 }: { initials: string; logoUrl?
   return (
     <div className="logo-tile" style={{ width: size, height: size, position: "relative", overflow: "hidden" }}>
       {logoUrl ? (
-        <Image 
-          src={logoUrl} 
+        <Image
+          src={logoUrl}
           alt={`${initials} Logo`}
           fill
-          style={{ objectFit: "contain", padding: "8px" }} 
+          style={{ objectFit: "contain", padding: "8px" }}
         />
       ) : (
         <>
@@ -169,7 +182,7 @@ function CapItem({ label, yrs, w }: { label: string; yrs: string; w: string }) {
 function LineChart() {
   const lineRef = useRef<SVGPathElement | null>(null);
   const areaRef = useRef<SVGPathElement | null>(null);
-  const svgRef  = useRef<SVGSVGElement  | null>(null);
+  const svgRef = useRef<SVGSVGElement | null>(null);
   const [hover, setHover] = useState<{ x: number; y: number; year: number; val: number } | null>(null);
 
   const data = [
@@ -190,7 +203,7 @@ function LineChart() {
   useEffect(() => {
     const line = lineRef.current; const area = areaRef.current; if (!line || !area) return;
     const len = line.getTotalLength();
-    line.style.strokeDasharray  = String(len);
+    line.style.strokeDasharray = String(len);
     line.style.strokeDashoffset = String(len);
     line.style.transition = "stroke-dashoffset 1.8s cubic-bezier(.2,.7,.2,1)";
     area.style.opacity = "0";
@@ -221,7 +234,7 @@ function LineChart() {
     <>
       <svg ref={svgRef} viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" onMouseMove={onMove} onMouseLeave={() => setHover(null)} className="line-svg">
         <g stroke="#d9d1bf" strokeWidth={1}>
-          <line x1={0} y1={40}  x2={W} y2={40}  strokeDasharray="2 4" />
+          <line x1={0} y1={40} x2={W} y2={40} strokeDasharray="2 4" />
           <line x1={0} y1={100} x2={W} y2={100} strokeDasharray="2 4" />
           <line x1={0} y1={160} x2={W} y2={160} strokeDasharray="2 4" />
           <line x1={0} y1={200} x2={W} y2={200} />
@@ -245,7 +258,7 @@ function LineChart() {
             <g transform={`translate(${Math.min(W - 124, Math.max(0, hover.x - 60))}, ${Math.max(0, hover.y - 50)})`}>
               <rect x={0} y={0} width={120} height={38} fill="#fbf8f2" stroke="#1f2a44" strokeWidth={1} />
               <text x={10} y={16} fontFamily="JetBrains Mono, monospace" fontSize={11} fill="#6b6558">{hover.year}</text>
-              <text x={10} y={32} fontFamily="Source Serif 4, serif"   fontSize={14} fill="#1a1814">{hover.val} concurrent</text>
+              <text x={10} y={32} fontFamily="Source Serif 4, serif" fontSize={14} fill="#1a1814">{hover.val} concurrent</text>
             </g>
           </>
         )}
@@ -313,10 +326,10 @@ export default function HomePage() {
       {/* STATS */}
       <section style={{ borderTop: "1px solid var(--rule)", borderBottom: "1px solid var(--rule)", background: "var(--surface)" }}>
         <div style={{ ...container, padding: "36px 48px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 48 }}>
-          <Stat v="10"  l="Years in practice"               target={10} bar="80%" />
-          <Stat v="7"   l="Sovereign & enterprise clients"  target={7}  bar="55%" />
-          <Stat v="20+" l="Production engagements"          target={20} bar="95%" suffix="+" />
-          <Stat v="3"   l="Regulated sectors"               target={3}  bar="40%" />
+          <Stat v="10" l="Years in practice" target={10} bar="80%" />
+          <Stat v="7" l="Sovereign & enterprise clients" target={7} bar="55%" />
+          <Stat v="20+" l="Production engagements" target={20} bar="95%" suffix="+" />
+          <Stat v="3" l="Regulated sectors" target={3} bar="40%" />
         </div>
       </section>
 
@@ -332,7 +345,7 @@ export default function HomePage() {
           <div className="marquee-track">
             {[...CLIENTS, ...CLIENTS].map((c, i) => (
               <Link key={i} href={c.href} className="client-cell">
-                <LogoTile initials={c.initials} logoUrl={c.logoUrl} />
+                <LogoTile initials={c.initials} logoUrl={c.logoUrl} size={84} />
                 <div>
                   <div className="client-name">{c.name}</div>
                   <div className="client-sector">{c.sector}</div>
